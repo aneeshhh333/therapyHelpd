@@ -947,7 +947,7 @@
   "faq": [
     {
       "question": "How long is each therapy session?",
-      "answer": "Standard therapy sessions are approximately **50 minutes** in duration. Session length may vary depending on individual needs, treatment goals, and the type of service being provided."
+      "answer": "Standard therapy sessions are approximately 50 minutes in duration. Session length may vary depending on individual needs, treatment goals, and the type of service being provided."
     },
     {
       "question": "How do I book an appointment?",
@@ -955,15 +955,15 @@
     },
     {
       "question": "Do you offer in-person and virtual therapy sessions?",
-      "answer": "Yes. We offer both **in-person therapy sessions** and **secure virtual therapy sessions** to accommodate different preferences and needs."
+      "answer": "Yes. We offer both **in-person therapy sessions and secure virtual therapy sessions to accommodate different preferences and needs."
     },
     {
       "question": "What are your fees?",
-      "answer": "Our current fees are:\n\n* **In-Person Therapy Session:** $150 per session\n* **Virtual Therapy Session:** $100 per session\n\nPayment is due at the time of service unless otherwise arranged."
+      "answer": "Our current fees are:\n\n* In-Person Therapy Session: $150 per session\n* Virtual Therapy Session: $100 per session\n\nPayment is due at the time of service unless otherwise arranged."
     },
     {
       "question": "Do you accept insurance?",
-      "answer": "We are considered an **out-of-network provider** for all insurance plans. This means we do not directly bill insurance companies.\n\nHowever, many insurance plans offer reimbursement for out-of-network mental health services. Upon request, we can provide documentation that you may submit to your insurance provider for possible reimbursement. We recommend contacting your insurance company directly to understand your specific out-of-network benefits."
+      "answer": "We are considered an out-of-network provider for all insurance plans. This means we do not directly bill insurance companies.\n However, clients paying out of pocket have the right to know about good faith estimate for their sessions."
     },
     {
       "question": "What can I expect during the first session?",
