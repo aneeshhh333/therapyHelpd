@@ -30,43 +30,51 @@ export default function Contact() {
   };
 
   const submit = async (e) => {
-    e.preventDefault();
-    if (!validate()) {
-      toast.error("Please fill in the required fields.");
-      return;
-    }
-    setSubmitting(true);
-    try {
-  const response = await fetch(
-    "https://api.web3forms.com/submit",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "YOUR_ACCESS_KEY",
-        firstName: form.firstName,
-        lastName: form.lastName,
-        city: form.city,
-        state: form.state,
-        email: form.email,
-        message: form.message,
-      }),
-    }
-  );
+  e.preventDefault();
 
-  const data = await response.json();
-
-  if (data.success) {
-    toast.success("Thank you — I'll be in touch shortly.");
-    setDone(true);
-    setForm(INITIAL);
-  } else {
-    throw new Error("Submission failed");
+  if (!validate()) {
+    toast.error("Please fill in the required fields.");
+    return;
   }
-}
-  };
+
+  setSubmitting(true);
+
+  try {
+    const response = await fetch(
+      "https://api.web3forms.com/submit",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY",
+
+          firstName: form.firstName,
+          lastName: form.lastName,
+          city: form.city,
+          state: form.state,
+          email: form.email,
+          message: form.message,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success("Thank you — I'll be in touch shortly.");
+      setDone(true);
+      setForm(INITIAL);
+    } else {
+      throw new Error("Submission failed");
+    }
+  } catch (err) {
+    toast.error("Something went wrong. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <div data-testid="page-contact">
