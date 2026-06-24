@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import { ArrowRight, CheckCircle2, Mail, MapPin, Clock } from "lucide-react";
 import Reveal from "@/components/Reveal";
-
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const INITIAL = { firstName: "", lastName: "", city: "", state: "", email: "", message: "" };
 
@@ -40,16 +37,35 @@ export default function Contact() {
     }
     setSubmitting(true);
     try {
-      await axios.post(`${API}/contact`, form);
-      toast.success("Thank you — I'll be in touch shortly.");
-      setDone(true);
-      setForm(INITIAL);
-    } catch (err) {
-      const msg = err?.response?.data?.detail || "Something went wrong. Please try again.";
-      toast.error(typeof msg === "string" ? msg : "Submission failed");
-    } finally {
-      setSubmitting(false);
+  const response = await fetch(
+    "https://api.web3forms.com/submit",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "YOUR_ACCESS_KEY",
+        firstName: form.firstName,
+        lastName: form.lastName,
+        city: form.city,
+        state: form.state,
+        email: form.email,
+        message: form.message,
+      }),
     }
+  );
+
+  const data = await response.json();
+
+  if (data.success) {
+    toast.success("Thank you — I'll be in touch shortly.");
+    setDone(true);
+    setForm(INITIAL);
+  } else {
+    throw new Error("Submission failed");
+  }
+}
   };
 
   return (
