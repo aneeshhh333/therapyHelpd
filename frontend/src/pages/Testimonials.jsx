@@ -27,8 +27,8 @@ export default function Testimonials() {
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 text-stone-600 text-lg max-w-2xl">
-              Names below are sample testimonials and have been changed to protect client confidentiality.
-              The feelings — and the work — are real.
+              Hear from our patients
+              
             </p>
           </Reveal>
         </div>
